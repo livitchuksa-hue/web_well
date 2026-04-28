@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Первая лаба</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="ico.png" type="image/png">
+</head>
+<body>
+
+<div class="todo-container">
+    <h1>Список дел</h1>
+    
+    <div class="input-group">
+        <input type="text" id="todoInput" placeholder="Новый элемент списка">
+        <button onclick="addTask()" class="btn-create">Создать</button>
+        <button onclick="clearAll()" class="btn-clear">Очистить всё</button>ё
+    </div>
+
+    <ul id="todoList">
+    </ul>
+</div>
+
+<footer class="footer">
+    Copyright ©
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

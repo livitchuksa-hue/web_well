@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript задания</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .task {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .task h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .task pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .output {
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>📝 Решение заданий по JavaScript</h1>
+    
+    <div class="task">
+        <h2>Задание 1. Работа с переменными</h2>
+        <p>Вывод значения admin (должно быть "Джон")</p>
+        <button onclick="task1()">Выполнить задание 1</button>
+    </div>
+
+    <div class="task">
+        <h2>Задание 2. Исправьте сложение</h2>
+        <p>Запрашивает два числа и выводит их сумму (должно быть 3, а не 12)</p>
+        <button onclick="task2()">Выполнить задание 2</button>
+    </div>
+
+    <div class="task">
+        <h2>Задание 3. Выведите чётные числа</h2>
+        <p>Чётные числа от 2 до 10:</p>
+        <button onclick="task3()">Выполнить задание 3</button>
+        <div id="task3-output" class="output"></div>
+    </div>
+
+    <div class="task">
+        <h2>Задание 4. Замените for на while</h2>
+        <p>Цикл с while вместо for:</p>
+        <button onclick="task4()">Выполнить задание 4</button>
+    </div>
+
+    <div class="task">
+        <h2>Задание 5. Повторять цикл, пока ввод неверен</h2>
+        <p>Введите число больше 100 (или нажмите Отмена для выхода)</p>
+        <button onclick="task5()">Выполнить задание 5</button>
+    </div>
+
+    <div class="task">
+        <h2>Задание 6. Простые числа</h2>
+        <p>Введите n для поиска простых чисел от 2 до n</p>
+        <input type="number" id="prime-n" value="10" min="2">
+        <button onclick="task6()">Вывести простые числа</button>
+        <div id="task6-output" class="output"></div>
+    </div>
+
+    <script>
+        // Задание 1: Работа с переменными
+        function task1() {
+            let admin;
+            let name;
+            name = "Джон";
+            admin = name;
+            alert("Задание 1: " + admin); // должно показать "Джон"
+        }
+
+        // Задание 2: Исправление сложения (проблема: prompt возвращает строки)
+        function task2() {
+            let a = prompt("Первое число?", "1");
+            let b = prompt("Второе число?", "2");
+            // Исправление: преобразуем строки в числа
+            let sum = Number(a) + Number(b);
+            alert("Задание 2: Сумма = " + sum); // должно быть 3
+        }
+
+        // Задание 3: Вывести чётные числа от 2 до 10
+        function task3() {
+            let evenNumbers = [];
+            for (let i = 2; i <= 10; i++) {
+                if (i % 2 === 0) {
+                    evenNumbers.push(i);
+                }
+            }
+            const outputDiv = document.getElementById('task3-output');
+            outputDiv.innerHTML = "Чётные числа: " + evenNumbers.join(", ");
+            alert("Чётные числа от 2 до 10: " + evenNumbers.join(", "));
+        }
+
+        // Задание 4: Замена for на while
+        function task4() {
+            alert("Задание 4: Вывод чисел от 0 до 2 (через alert)");
+            let i = 0;
+            while (i < 3) {
+                alert(`number ${i}!`);
+                i++;
+            }
+        }
+
+        // Задание 5: Цикл до ввода числа > 100 или отмены
+        function task5() {
+            let userInput;
+            while (true) {
+                userInput = prompt("Введите число больше 100:");
+                
+                // Если пользователь нажал Отмена (null) - выходим
+                if (userInput === null) {
+                    alert("Вы отменили ввод. Выход из цикла.");
+                    break;
+                }
+                
+                // Преобразуем в число
+                let number = Number(userInput);
+                
+                // Проверяем, что введено число и оно больше 100
+                if (!isNaN(number) && number > 100) {
+                    alert("Спасибо! Вы ввели число " + number + " (больше 100)");
+                    break;
+                } else {
+                    alert("Ошибка! Нужно ввести число, большее 100. Попробуйте снова.");
+                }
+            }
+        }
+
+        // Задание 6: Вывод простых чисел от 2 до n
+        function isPrime(num) {
+            // Простые числа - это числа больше 1, которые делятся только на 1 и на себя
+            if (num < 2) return false;
+            // Проверяем делители от 2 до квадратного корня из num
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    return false; // нашёлся делитель — число не простое
+                }
+            }
+            return true;
+        }
+
+        function task6() {
+            const nInput = document.getElementById('prime-n');
+            let n = parseInt(nInput.value);
+            
+            if (isNaN(n) || n < 2) {
+                alert("Пожалуйста, введите число n >= 2");
+                return;
+            }
+            
+            let primes = [];
+            for (let i = 2; i <= n; i++) {
+                if (isPrime(i)) {
+                    primes.push(i);
+                }
+            }
+            
+            const outputDiv = document.getElementById('task6-output');
+            if (primes.length === 0) {
+                outputDiv.innerHTML = "Нет простых чисел в интервале от 2 до " + n;
+                alert("Нет простых чисел в интервале от 2 до " + n);
+            } else {
+                outputDiv.innerHTML = "Простые числа от 2 до " + n + ": " + primes.join(", ");
+                alert("Простые числа от 2 до " + n + ":\n" + primes.join(", "));
+            }
+        }
+
+        // Дополнительно: автоматический запуск заданий 1-6 при загрузке страницы
+        // (Раскомментируйте, если нужно автоматическое выполнение)
+        /*
+        window.onload = function() {
+            task1(); // задание 1: alert с "Джон"
+            task2(); // задание 2: запрос двух чисел и сумма
+            task3(); // задание 3: вывод чётных чисел в консоль/alert
+            task4(); // задание 4: while-цикл с алертами
+            // Задание 5 не запускаем автоматически, чтобы не надоедать prompt
+            // Задание 6 не запускаем автоматически (ждёт ввода n)
+        };
+        */
+        
+        // Вывод в консоль для дополнительной информации
+        console.log("Страница загружена. Все задания доступны.");
+        console.log("Задание 6: для поиска простых чисел используйте поле ввода и кнопку.");
+    </script>
+</body>
+</html>
