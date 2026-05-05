@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>🌸 Массивы и вложенность 🌸</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="pink-header">
+            <h1>🌸 Массивные задачки 🌸</h1>
+            <p>Макс. разница · Уникальные · isDone · Фильтр · Плоский массив · Пары / Тройки сумм = 0</p>
+        </header>
+
+        <main>
+            <section class="task-card">
+                <h2>  Задача 1.1 — Максимальная разница между элементами</h2>
+                <div class="input-group">
+                    <label>Массив чисел (через запятую):</label>
+                    <input type="text" id="diffArrayInput" placeholder="Пример: 3, 10, 2, 25, 1, 7" value="3, 10, 2, 25, 1, 7">
+                </div>
+                <button class="pink-btn" id="calcDiffBtn">✨ Найти макс. разницу</button>
+                <div class="result-area" id="diffResult">Результат появится здесь...</div>
+            </section>
+
+            <section class="task-card">
+                <h2>  Задача 1.2 — Вернуть массив без повторяющихся элементов</h2>
+                <div class="input-group">
+                    <label>Массив (числа или строки, через запятую):</label>
+                    <input type="text" id="uniqueArrayInput" placeholder="1, 2, 2, 3, 4, 4, 'hello', 'hello'" value="1, 2, 2, 3, 4, 4, hello, hello">
+                </div>
+                <button class="pink-btn" id="getUniqueBtn">🌸 Убрать дубликаты</button>
+                <div class="result-area" id="uniqueResult">Результат...</div>
+            </section>
+
+            <section class="task-card">
+                <h2>  Задача 1.3 — Фильтр объектов: isDone: true</h2>
+                <div class="input-group">
+                    <label>Исходный массив объектов (JSON):</label>
+                    <textarea id="objectsInput" rows="3">[{"id": 1, "isDone": true}, {"id": 2, "isDone": false}, {"id": 3, "isDone": true}]</textarea>
+                    <div class="hint">Формат: [{id:1, isDone:true}, ...] или с кавычками "isDone".</div>
+                </div>
+                <button class="pink-btn" id="filterDoneBtn">🎀 Фильтр isDone: true</button>
+                <div class="result-area" id="doneResult">Результат фильтрации...</div>
+            </section>
+
+            <section class="task-card">
+                <h2>  Задача 2.1 — Элементы массива больше указанного числа</h2>
+                <div class="input-group row-flex">
+                    <div style="flex:2">
+                        <label>Массив чисел:</label>
+                        <input type="text" id="greaterArrInput" value="1, 4, 6, 3, 2">
+                    </div>
+                    <div style="flex:1">
+                        <label>Число (порог):</label>
+                        <input type="number" id="thresholdInput" value="2">
+                    </div>
+                </div>
+                <button class="pink-btn" id="greaterThanBtn">🔎 Найти > порога</button>
+                <div class="result-area" id="greaterResult">Результат: [4, 6, 3]</div>
+            </section>
+
+            <section class="task-card">
+                <h2>  Задача 2.2 — Плоский массив (flatten, любая вложенность)</h2>
+                <div class="input-group">
+                    <label>Многомерный массив (валидный JSON):</label>
+                    <textarea id="nestedArrayInput" rows="2">[1, 4, [34, 1, 20], [6, [6, 12, 8], 6]]</textarea>
+                    <div class="hint">Пример: [1, [2, [3, 4]], 5] ➜ [1,2,3,4,5]</div>
+                </div>
+                <button class="pink-btn" id="flattenBtn">🌀 Революция массивов</button>
+                <div class="result-area" id="flattenResult">Ожидайте результат...</div>
+            </section>
+
+            <section class="task-card triple-card">
+                <h2>💗 Задача 3 — Пары и Тройки чисел, дающих сумму 0</h2>
+                <div class="input-group">
+                    <label>Целочисленный массив (через запятую):</label>
+                    <input type="text" id="pairTripleInput" placeholder="-7, 12, 4, 6, -4, -12, 0" value="-7, 12, 4, 6, -4, -12, 0">
+                </div>
+                <div class="button-group">
+                    <button class="pink-btn" id="countPairsBtn">💞 Количество пар (сумма = 0)</button>
+                    <button class="pink-btn" id="countTriplesBtn">💖 Количество троек (сумма = 0)</button>
+                </div>
+                <div class="result-area" id="pairTripleResult">Результат: пары: ___ , тройки: ___ (нажмите кнопку)</div>
+                <div class="examples-hint">
+                    📘 Примеры: [-7,12,4,6,-4,-12,0] → пары = 2; [-1,2,4,7,-4,1,-2] → пары = 3; 
+                    тройки для [-1,0,1,2,-1,-4] → можно проверить.
+                </div>
+            </section>
+        </main>
+        <footer class="pink-footer">
+            🌸 С любовью и розовым настроением | Задачи на массивы, пары/тройки, flatten, unique, maxDiff
+        </footer>
+    </div>
+
+    <script src="code.js"></script>
+</body>
+</html>

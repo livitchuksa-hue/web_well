@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Розовые задания: счётчики, промисы, GitHub API</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="pink-header">
+            <h1>🌸 Розовый блок задач 🌸</h1>
+            <p>Задания: счётчик (n..0), createCounter, delay-промис, GitHub репозиторий + async/await</p>
+            <p>📺 Все результаты выводятся прямо на эту страницу!</p>
+        </header>
+
+        <!-- ЗАДАЧА 1.1: counter(n) -->
+        <div class="task-card">
+            <h2>📟 Задача 1.1: Функция counter(n)</h2>
+            <p>Выводит числа <strong>n, n-1 ... 2, 1, 0</strong> с интервалом 1 секунда, затем останавливается.</p>
+            <div class="input-group">
+                <label>Значение n: </label>
+                <input type="number" id="counterN" value="5" min="0" step="1">
+                <button id="runCounterBtn" class="pink-btn">🚀 Запустить counter(n)</button>
+            </div>
+            <div id="counterTask1Output" class="output-area" style="max-height: 200px; overflow-y: auto; font-family: monospace;">
+                📭 Нажмите кнопку для запуска
+            </div>
+        </div>
+
+        <!-- ЗАДАЧА 1.2: createCounter(n) -->
+        <div class="task-card">
+            <h2>⏯️ Задача 1.2: createCounter(n) с методами start/pause/stop</h2>
+            <p>Создаёт объект-счётчик от N до 0 с управлением (интервал 1с).</p>
+            <div class="input-group">
+                <label>Стартовое N: </label>
+                <input type="number" id="counterStartN" value="8" min="0" step="1">
+                <button id="createCounterBtn" class="pink-btn">✨ Создать счётчик</button>
+            </div>
+            <div class="counter-controls" id="counterControls" style="display: none;">
+                <button id="startCounterCtrl" class="ctrl-btn start">▶️ start()</button>
+                <button id="pauseCounterCtrl" class="ctrl-btn pause">⏸️ pause()</button>
+                <button id="stopCounterCtrl" class="ctrl-btn stop">⏹️ stop()</button>
+                <span id="counterStatus" class="status-badge">Неактивен</span>
+            </div>
+            <div id="counterValueDisplay" class="output-area" style="font-size: 48px; text-align: center; font-weight: bold;">
+                🤍 —
+            </div>
+            <div class="info-message">Статус: <span id="counterStatusText">ожидает создания</span></div>
+        </div>
+
+        <!-- ЗАДАЧА 2: Промис delay(N) -->
+        <div class="task-card">
+            <h2>⏳ Задача 2: Промис delay(N) и счётчик через delay</h2>
+            <p>Счётчик от start до 0 через рекурсивные промисы delay.</p>
+            <div class="input-group">
+                <label>Стартовое число: </label>
+                <input type="number" id="delayStartVal" value="4" min="0" step="1">
+                <button id="runDelayCounterBtn" class="pink-btn">⏲️ Запустить счёт через delay</button>
+            </div>
+            <div id="delayTaskOutput" class="output-area" style="max-height: 250px; overflow-y: auto; font-family: monospace;">
+                💗 Нажмите кнопку для запуска
+            </div>
+        </div>
+
+        <!-- ЗАДАЧА 2 (GitHub) -->
+        <div class="task-card">
+            <h2>🐙 Задача 2 (GitHub): первый репозиторий</h2>
+            <p>Получение первого репозитория пользователя GitHub.</p>
+            <div class="input-group">
+                <label>Имя пользователя: </label>
+                <input type="text" id="githubUsername" placeholder="octocat" value="octocat">
+                <button id="getFirstRepoBtn" class="pink-btn">🔍 Найти первый репозиторий</button>
+            </div>
+            <div id="githubTaskOutput" class="output-area" style="max-height: 300px; overflow-y: auto;">
+                💬 Введите имя пользователя
+            </div>
+        </div>
+
+        <!-- ЗАДАЧА 3 -->
+        <div class="task-card">
+            <h2>⚡ Задача 3: async/await + getGithubUser</h2>
+            <p>Поиск пользователя GitHub с циклом вместо рекурсии.</p>
+            <button id="runGithubUserAsyncBtn" class="pink-btn large-btn">👤 Запустить поиск пользователя</button>
+            <div id="asyncTaskOutput" class="output-area" style="max-height: 350px; overflow-y: auto; margin-top: 15px;">
+                📝 Результаты появятся здесь...
+            </div>
+        </div>
+
+        <footer class="pink-footer">
+            🌸 Все результаты выводятся в поля на этой странице 🌸
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
